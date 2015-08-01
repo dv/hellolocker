@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/dv/hellolocker/badge.svg?branch=master&service=github)](https://coveralls.io/github/dv/hellolocker?branch=master)
+
 # Development
 
 ## Guard

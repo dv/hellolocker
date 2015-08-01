@@ -85,3 +85,9 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+if ENV["CI"]
+  require 'coveralls'
+  Coveralls.wear!
+end
+
