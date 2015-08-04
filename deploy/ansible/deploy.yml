@@ -1,0 +1,16 @@
+---
+- name: Load current git commit
+  hosts: all
+  connection: local
+  tasks:
+    - shell: "git log --pretty=format:'%h' -n 1"
+      register: git_log_result
+      ignore_errors: True
+
+    - set_fact:
+        git_ref: "{{git_log_result.stdout}}"
+
+- name: Deploy
+  hosts: all
+  roles:
+    - nginx

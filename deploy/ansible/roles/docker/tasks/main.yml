@@ -1,0 +1,46 @@
+---
+- name: Set vars
+  set_fact:
+    docker_image: "hellolocker:{{git_ref}}"
+    docker_container: "hellolocker-{{git_ref}}-1"
+
+- name: Install pip for docker-py
+  sudo: yes
+  easy_install:
+    name: pip
+
+- name: Install docker-py
+  pip:
+    name: docker-py
+
+- name: Download repository
+  git:
+    accept_hostkey: yes
+    clone: yes
+    dest: /tmp/hellolocker
+    repo: git://github.com/dv/hellolocker.git
+    version: "{{git_ref}}"
+    update: yes
+
+- name: Build Docker image
+  sudo: yes
+  shell: "docker build -t '{{docker_image}}' ."
+  args:
+    chdir: /tmp/hellolocker
+
+- name: Run Docker container
+  sudo: yes
+  docker:
+    name: "{{docker_container}}"
+    image: "{{docker_image}}"
+    docker_api_version: 1.18
+    ports: 80
+
+- name: Get exposed address
+  sudo: yes
+  shell: "docker port '{{docker_container}}' 80"
+  register: port_result
+
+- name: Save exposed address
+  set_fact:
+    hellolocker_address: "{{port_result.stdout}}"

@@ -17,3 +17,8 @@ Then just run guard:
 ```
 $ guard
 ```
+
+
+# Deployment
+
+`ansible-playbook -i "hellolocker.com," deploy/ansible/deploy.yml`
