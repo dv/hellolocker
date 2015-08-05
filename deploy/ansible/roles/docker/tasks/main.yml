@@ -39,6 +39,7 @@
       - /var/run/postgresql # Socket to connect to DB
     env:
       DATABASE_URL: "{{ database_url }}"
+      SECRET_KEY_BASE: "{{ secret_key_base }}"
 
 - name: Get exposed address
   sudo: yes
