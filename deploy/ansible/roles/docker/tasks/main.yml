@@ -30,7 +30,7 @@
 
 - name: Tag Docker image as latest
   sudo: yes
-  shell: "docker tag -f {{docker_image}} hellolocker:latest"
+  shell: "docker tag -f '{{docker_image}}' 'hellolocker:latest'"
 
 - name: Run Docker container
   sudo: yes
