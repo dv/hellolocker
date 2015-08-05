@@ -45,6 +45,16 @@
       DATABASE_URL: "{{ database_url }}"
       SECRET_KEY_BASE: "{{ secret_key_base }}"
 
+- name: Fetch containers older than last 5
+  sudo: yes
+  shell: "sudo docker ps -f 'name=hellolocker' -q | tail -n +6"
+  register: old_containers
+
+- name: Stop old containers
+  sudo: yes
+  shell: "docker stop {{ item }}"
+  with_items: "{{old_containers.stdout_lines}}"
+
 - name: Get exposed address
   sudo: yes
   shell: "docker port '{{docker_container}}' 80"
