@@ -7,7 +7,7 @@ RUN rm -f /etc/service/nginx/down
 WORKDIR /home/app
 
 RUN rm /etc/nginx/sites-enabled/default
-ADD deploy/docker/nginx/rails-env.conf  /etc/nginx/main.d
+ADD deploy/docker/nginx/rails-env.conf  /etc/nginx/main.d/rails-env.conf
 ADD deploy/docker/nginx/hellolocker.com /etc/nginx/sites-enabled/hellolocker.com
 
 
