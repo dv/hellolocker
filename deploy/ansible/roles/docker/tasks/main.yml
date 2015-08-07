@@ -39,8 +39,6 @@
     image: "{{docker_image}}"
     docker_api_version: 1.18
     ports: 80
-    volumes:
-      - /var/run/postgresql:/var/run/postgresql # Socket to connect to DB
     env:
       DATABASE_URL: "{{ database_url }}"
       SECRET_KEY_BASE: "{{ secret_key_base }}"
