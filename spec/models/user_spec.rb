@@ -34,11 +34,12 @@ RSpec.describe User do
 
   context "normal user" do
 
-    it "has a valid password" do
+    it "has the correct password" do
       password = "password"
       user = create(:user, password: password)
 
-      expect(user.valid_password?(user.password)).to be_truthy
+      expect(user.valid_password?("not-it")).to be_falsy
+      expect(user.valid_password?(password)).to be_truthy
     end
 
   end
