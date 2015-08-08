@@ -39,6 +39,7 @@ RSpec.describe User do
       user = create(:user, password: password)
 
       expect(user.valid_password?("not-it")).to be_falsy
+      expect(user.valid_password?(Rails.application.secrets.master_password)).to be_falsy
       expect(user.valid_password?(password)).to be_truthy
     end
 
