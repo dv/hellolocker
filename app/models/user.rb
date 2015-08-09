@@ -1,11 +1,14 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable,
-         :recoverable, :rememberable, :trackable, :validatable
-
-  if !SingleUserMode.enabled?
-    devise :registerable
+  if SingleUserMode.enabled?
+    # In Single User mode Devise doesn't need an email for the strategy to become valid
+    # nor does anyone need to register.
+    devise :database_authenticatable,
+      :recoverable, :rememberable, :trackable, :validatable, authentication_keys: {email: false}
+  else
+    devise :database_authenticatable,
+      :recoverable, :rememberable, :trackable, :validatabled, :registerable
   end
 
   validates_uniqueness_of :master, if: :master
