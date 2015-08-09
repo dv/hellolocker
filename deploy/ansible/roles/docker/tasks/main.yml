@@ -32,6 +32,25 @@
   sudo: yes
   shell: "docker tag -f '{{docker_image}}' 'hellolocker:latest'"
 
+- name: Run migrations in container
+  sudo: yes
+  docker:
+    name: "{{docker_container}}-migrations"
+    image: "{{docker_image}}"
+    docker_api_version: 1.18
+    command: "bundle exec rake db:migrate"
+    env:
+      DATABASE_URL: "{{ database_url }}"
+      SECRET_KEY_BASE: "{{ secret_key_base }}"
+
+- name: "Remove migration container"
+  sudo: yes
+  docker:
+    name: "{{docker_container}}-migrations"
+    image: "{{docker_image}}"
+    docker_api_version: 1.18
+    state: absent
+
 - name: Run Docker container
   sudo: yes
   docker:
