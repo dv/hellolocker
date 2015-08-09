@@ -35,16 +35,18 @@ gem 'thin'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
 gem 'devise'
 
 gem 'whenever', require: false
+
+gem 'haml-rails'
 
 group :development, :test do
   gem 'pry', require: "pry"
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'pry-byebug'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
