@@ -9,6 +9,11 @@ default: &default
   pool: 5
   timeout: 5000
 
+postgresql: &postgresql
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
 development:
   <<: *default
   database: db/development.sqlite3
@@ -17,8 +22,12 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
-  database: db/test.sqlite3
+  <<: *postgresql
+  host: localhost
+  database: test
+  username: postgres
+  password: postgres
 
 production:
   url: <%= ENV['DATABASE_URL'] %>
+

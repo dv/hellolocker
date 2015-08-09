@@ -4,6 +4,12 @@ RSpec.describe User do
 
   context "master user" do
 
+    it "doesn't require email or password to be created" do
+      user = build(:master, password: nil, email: nil)
+
+      expect(user).to be_valid
+    end
+
     it "become master" do
       user = User.new
       user.master = true
@@ -33,6 +39,14 @@ RSpec.describe User do
   end
 
   context "normal user" do
+
+    it "requires email and password to be created" do
+      user_without_password = build(:user, password: nil)
+      user_without_email = build(:user, email: nil)
+
+      expect(user_without_password).not_to be_valid
+      expect(user_without_email).not_to be_valid
+    end
 
     it "has the correct password" do
       password = "password"
