@@ -22,7 +22,7 @@ RSpec.configure do |config|
     set_database_cleaner_strategy(:transaction)
   end
 
-  config.before(:each, :truncate) do
+  config.before(:each, :clean_with_truncation) do
     set_database_cleaner_strategy(:truncation)
   end
 
