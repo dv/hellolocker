@@ -61,6 +61,7 @@
     env:
       DATABASE_URL: "{{ database_url }}"
       SECRET_KEY_BASE: "{{ secret_key_base }}"
+      MASTER_PASSWORD: "{{ master_password }}"
 
 - name: Fetch containers older than last 5
   sudo: yes
