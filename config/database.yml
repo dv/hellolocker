@@ -15,8 +15,11 @@ postgresql: &postgresql
   pool: 5
 
 development:
-  <<: *default
-  database: db/development.sqlite3
+  <<: *postgresql
+  host: localhost
+  database: development
+  username: postgres
+  password: postgres
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
