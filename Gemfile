@@ -40,6 +40,7 @@ gem 'devise'
 gem 'whenever', require: false
 
 gem 'haml-rails'
+gem 'hashids'
 
 group :development, :test do
   gem 'pry', require: "pry"
