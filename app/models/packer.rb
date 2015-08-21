@@ -1,7 +1,8 @@
 class Packer
+  TWO_CHAR_UPPER_BOUND = 43 # Numbers higher than this require one more character
 
   class << self
-    delegate :pack, :unpack, to: :instance
+    delegate :pack, :unpack, :generate_single_segment_salt, to: :instance
   end
 
   def pack(data)
@@ -10,6 +11,10 @@ class Packer
 
   def unpack(data)
     hashids.decode(data)
+  end
+
+  def generate_single_segment_salt
+    Random.rand(TWO_CHAR_UPPER_BOUND + 1)
   end
 
 private
