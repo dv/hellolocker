@@ -1,0 +1,7 @@
+- @items.each do |item|
+  %h2
+    = item.url
+  %ul
+    - item.links.each do |link|
+      %li
+        = link.label

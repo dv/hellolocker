@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   resource :dashboard, controller: "dashboard"
+  resources :items
 
   root to: redirect('/dashboard')
 
