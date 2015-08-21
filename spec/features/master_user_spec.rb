@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe "as a master user" do
+RSpec.feature "Master User" do
 
-  it "can sign in" do
+  scenario "Can sign in" do
     visit root_path
     fill_in "Password", with: Rails.application.secrets.master_password
     click_on "Log in"
