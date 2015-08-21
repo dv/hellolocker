@@ -1,10 +1,11 @@
 require 'rails_helper'
 
-RSpec.feature "Short links" do
+RSpec.feature "Short Links" do
 
   scenario "can be visited", :js do
     full_url = "http://example.com/"
-    short_link = create :item, url: full_url
+    short_item = create :item, url: full_url
+    short_link = create :link, item: short_item
 
     visit item_path(short_link)
 
