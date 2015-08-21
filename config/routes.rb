@@ -10,6 +10,6 @@ Rails.application.routes.draw do
 
   root to: redirect('/dashboard')
 
-  get "/:id" => "items#show", as: "item"
+  get "/:label" => "labels#show", as: "label"
 
 end
