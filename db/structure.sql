@@ -137,6 +137,18 @@ ALTER SEQUENCE settings_id_seq OWNED BY settings.id;
 
 
 --
+-- Name: short_link_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE short_link_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
 -- Name: users; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -297,4 +309,6 @@ INSERT INTO schema_migrations (version) VALUES ('20150821115125');
 INSERT INTO schema_migrations (version) VALUES ('20150821150455');
 
 INSERT INTO schema_migrations (version) VALUES ('20150821152750');
+
+INSERT INTO schema_migrations (version) VALUES ('20150821155220');
 
