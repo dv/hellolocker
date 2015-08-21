@@ -41,6 +41,7 @@ gem 'whenever', require: false
 
 gem 'haml-rails'
 gem 'hashids'
+gem 'rails-settings-cached'
 
 group :development, :test do
   gem 'pry', require: "pry"
