@@ -1,6 +1,5 @@
 class Link < ActiveRecord::Base
   belongs_to :item
 
-  validates_uniqueness_of :label
-
+  validates :label, presence: true, uniqueness: true
 end
