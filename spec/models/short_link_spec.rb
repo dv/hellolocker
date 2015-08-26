@@ -17,7 +17,7 @@ RSpec.describe ShortLink, type: :model do
     end
 
     it "is regenerated with same index" do
-      link = build :short_link, :with_label, salt_count: 4
+      link = build :short_link, salt_count: 4
       index = link.index
 
       link.salt_count = 5
@@ -29,7 +29,7 @@ RSpec.describe ShortLink, type: :model do
 
   context "#generate_label" do
     it "generates" do
-      link = build :short_link
+      link = build :short_link, label: nil
       link.generate_label
 
       expect(link.label).not_to be_blank

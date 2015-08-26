@@ -11,7 +11,7 @@ FactoryGirl.define do
   factory :short_link do
 
     after(:build) do |link|
-      link.generate_label
+      link.generate_label unless link.label.present?
     end
 
   end

@@ -1,12 +1,12 @@
 class ShortLink < Link
-  validate :ensure_label_is_packed_data, if: :label
+  validate :ensure_label_is_valid_data, if: :label
 
   def generate_label
     self.label = ShortLink.generate_random_label(index, salt_count)
   end
 
   def index
-    if label.present?
+    if label_is_valid_data?
       Packer.unpack(label).first
     else
       generate_index
@@ -14,7 +14,7 @@ class ShortLink < Link
   end
 
   def salt_count
-    if label.present?
+    if label_is_valid_data?
       Packer.unpack(label).count - 1
     else
       @salt_count
@@ -45,10 +45,14 @@ private
     @new_index ||= ShortLinkSequence.next
   end
 
-  def ensure_label_is_packed_data
-    if Packer.unpack(label).blank?
+  def ensure_label_is_valid_data
+    if !label_is_valid_data?
       errors.add(:label, "is not a valid shortlink")
     end
+  end
+
+  def label_is_valid_data?
+    Packer.unpack(label).present?
   end
 
 end
