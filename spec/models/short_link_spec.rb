@@ -16,12 +16,6 @@ RSpec.describe ShortLink, type: :model do
       expect(link).to be_invalid
     end
 
-    it "is automatically generated" do
-      link = create :short_link, label: nil
-
-      expect(link.label).not_to be_blank
-    end
-
     it "is regenerated with same index" do
       link = build :short_link, :with_label, salt_count: 4
       index = link.index
@@ -31,10 +25,20 @@ RSpec.describe ShortLink, type: :model do
 
       expect(link.index).to eq(index)
     end
+  end
+
+  context "#generate_label" do
+    it "generates" do
+      link = build :short_link
+      link.generate_label
+
+      expect(link.label).not_to be_blank
+    end
 
     it "is generated using number of salts specified in salts_count" do
       salt_count = 5
-      link = create :short_link, salt_count: salt_count
+      link = build :short_link, salt_count: salt_count
+      link.generate_label
 
       packed_salt_count = Packer.unpack(link.label).count - 1
 

@@ -5,15 +5,13 @@ FactoryGirl.define do
   end
 
   factory :link do
-
+    label
   end
 
   factory :short_link do
 
-    trait :with_label do
-      after(:build) do |link|
-        link.generate_label
-      end
+    after(:build) do |link|
+      link.generate_label
     end
 
   end

@@ -1,6 +1,4 @@
 class ShortLink < Link
-  before_save :generate_label, unless: :label
-
   validate :ensure_label_is_packed_data, if: :label
 
   def generate_label
