@@ -2,7 +2,7 @@ class LinksController < ApplicationController
   before_action :set_item
 
   def new
-    @link = @item.links.new
+    @link = @item.links.build_short_link
   end
 
   def create
