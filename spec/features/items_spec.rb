@@ -28,4 +28,17 @@ RSpec.describe "Items" do
     expect(page).to have_content(full_url)
     expect(page).to have_content(label)
   end
+
+  scenario "can add another link" do
+    item = create :item
+    label = "batmananana"
+    first_link = create :link, item: item
+
+    visit new_item_link_path(item)
+
+    fill_in "link[label]", with: label
+    click_on "Create"
+
+    expect(item.links.last.label).to eq(label)
+  end
 end
