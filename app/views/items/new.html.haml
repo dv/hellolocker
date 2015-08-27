@@ -1,3 +1,15 @@
-= form_for @item do |form|
-  = form.text_field :url
-  = form.submit "Create"
+%h2
+  Create a new link
+
+%p
+  = form_for @item do |form|
+    %p
+      = form.label :url, "Full URL:"
+      = form.text_field :url
+
+    %p
+      = fields_for @link do |link_form|
+        = link_form.label :label, "http://hellolocker.com/"
+        = link_form.text_field :label
+
+    = form.submit "Create"
