@@ -1,17 +1,17 @@
 require "rails_helper"
 
-RSpec.describe ShortLinkSequence do
+RSpec.describe ShortLabelSequence do
 
   describe "#next" do
     it "returns a number" do
-      num = ShortLinkSequence.next
+      num = ShortLabelSequence.next
 
       expect(num).to be_a(Numeric)
     end
 
     it "returns strictly rising numbers" do
-      num1 = ShortLinkSequence.next
-      num2 = ShortLinkSequence.next
+      num1 = ShortLabelSequence.next
+      num2 = ShortLabelSequence.next
 
       expect(num1).to be < num2
     end
