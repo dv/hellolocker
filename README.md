@@ -51,6 +51,9 @@ ansible-playbook \
   --extra-vars "secret_key_base=randomtokenhere" \
   --extra-vars "hashids_salt=anotherrandomtokenhere" \
   deploy/ansible/deploy.yml
+
+# Start Rails app
+curl http://hellolocker.com
 ```
 
 ## Configure Database

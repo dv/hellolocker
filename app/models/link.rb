@@ -8,5 +8,4 @@ class Link < ActiveRecord::Base
 
     Rails.application.routes.url_helpers.label_link_url(options)
   end
-
 end
