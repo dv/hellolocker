@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @link = generate_short_link
+    @link = Link.build_short_link
     @item = Item.new
   end
 
@@ -23,13 +23,6 @@ class ItemsController < ApplicationController
   end
 
 private
-
-  def generate_short_link
-    index = ShortLabelSequence.next
-    label = LabelMaker.new.generate_short_label(salt_count: 1, index: index)
-
-    Link.new(label: label)
-  end
 
   def item_params
     params.require(:item).permit(:url)

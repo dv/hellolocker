@@ -28,4 +28,13 @@ RSpec.describe Link, type: :model do
     end
   end
 
+  describe ".build_short_link" do
+    it "generates a Link" do
+      link = Link.build_short_link
+
+      expect(link).not_to be_nil
+      expect(link).to be_valid
+    end
+  end
+
 end
