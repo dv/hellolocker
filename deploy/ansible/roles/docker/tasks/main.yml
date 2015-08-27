@@ -40,6 +40,7 @@
     docker_api_version: 1.18
     command: "bundle exec rake db:migrate"
     env:
+      RAILS_ENV: "production"
       DATABASE_URL: "{{ database_url }}"
       SECRET_KEY_BASE: "{{ secret_key_base }}"
 
