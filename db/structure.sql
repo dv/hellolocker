@@ -70,7 +70,7 @@ CREATE TABLE links (
     updated_at timestamp without time zone NOT NULL,
     label character varying,
     item_id integer,
-    type character varying
+    label_type character varying
 );
 
 
@@ -311,4 +311,6 @@ INSERT INTO schema_migrations (version) VALUES ('20150821150455');
 INSERT INTO schema_migrations (version) VALUES ('20150821152750');
 
 INSERT INTO schema_migrations (version) VALUES ('20150821155220');
+
+INSERT INTO schema_migrations (version) VALUES ('20150827100929');
 
