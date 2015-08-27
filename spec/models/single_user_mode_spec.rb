@@ -27,6 +27,7 @@ RSpec.describe SingleUserMode do
       end
 
     returned_master_user = SingleUserMode.master_user
+
     expect(User.where(master: true).many?).to be_falsy
     expect(returned_master_user).to eq(our_master_user)
   end
