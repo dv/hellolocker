@@ -11,6 +11,6 @@ Rails.application.routes.draw do
 
   root to: redirect('/dashboard')
 
-  get "/:label" => "labels#show", as: "label"
+  get "/:label" => "labels#show", as: "label_link"
 
 end

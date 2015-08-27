@@ -16,4 +16,16 @@ RSpec.describe Link, type: :model do
     expect(link).to be_invalid
   end
 
+  describe "#url" do
+    it "returns the full URL with label" do
+      host = "example.com"
+      Rails.application.routes.default_url_options[:host] = host
+      label = "boo"
+
+      link = build :link, label: label
+
+      expect(link.url).to eq("http://#{host}/#{label}")
+    end
+  end
+
 end

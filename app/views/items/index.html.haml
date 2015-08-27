@@ -4,4 +4,5 @@
   %ul
     - item.links.each do |link|
       %li
-        = link.label
+        = link_to label_url(link) do
+          = label_url(link)
