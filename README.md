@@ -49,6 +49,7 @@ ansible-playbook \
   -i "hellolocker.com," \
   --extra-vars "database_url=postgresql://user:pass@localhost/my_databaseans" \
   --extra-vars "secret_key_base=randomtokenhere" \
+  --extra-vars "hashids_salt=anotherrandomtokenhere" \
   deploy/ansible/deploy.yml
 ```
 
