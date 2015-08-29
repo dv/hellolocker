@@ -24,11 +24,7 @@ private
   end
 
   def hashids
-    Hashids.new(salt)
-  end
-
-  def salt
-    Rails.application.secrets.hashids_salt
+    Hashids.new
   end
 
 end
