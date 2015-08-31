@@ -1,0 +1,14 @@
+{
+  "name": "hellolocker",
+  "dependencies" : {
+    "browserify": "~> 10.2.4",
+    "browserify-incremental": "^3.0.1",
+    "babelify": "~> 6.1.3",
+    "hashids": "~> 1.0.2"
+  },
+  "devDependencies": {
+    "chai": "~> 3.2.0",
+    "mocha": "~> 2.2.5",
+    "sinon": "~> 1.16.1"
+  }
+}

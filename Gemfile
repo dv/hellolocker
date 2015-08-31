@@ -43,6 +43,9 @@ gem 'haml-rails'
 gem 'hashids'
 gem 'rails-settings-cached'
 
+gem 'react-rails'
+gem 'browserify-rails'
+
 group :development, :test do
   gem 'pry', require: "pry"
 
@@ -62,6 +65,9 @@ group :development, :test do
   gem 'poltergeist'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+
+  gem 'teaspoon-mocha'
+  gem 'guard-teaspoon'
 end
 
 group :development do

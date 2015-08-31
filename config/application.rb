@@ -25,5 +25,13 @@ module Hellolocker
 
     # Dump schema as SQL
     config.active_record.schema_format = :sql
+
+    # React settings
+    config.react.server_renderer_options = {
+      # files: ["react.js", "components.js"], # files to load for prerendering
+      replay_console: true,                 # if true, console.* will be replayed client-side
+    }
+
+    config.react.addons = true
   end
 end
