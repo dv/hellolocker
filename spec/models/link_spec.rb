@@ -46,6 +46,27 @@ RSpec.describe Link, type: :model do
 
       expect(link).not_to be_nil
       expect(link).to be_valid
+      expect(link.label_type).to eq("short")
+    end
+  end
+
+  describe "#label_type" do
+    it "can not be empty" do
+      link = build :link, label_type: ""
+
+      expect(link).to be_invalid
+    end
+
+    it "needs to be from the list" do
+      link = build :link, label_type: "nananana"
+
+      expect(link).to be_invalid
+    end
+
+    it "can be custom" do
+      link = build :link, label_type: "custom"
+
+      expect(link).to be_valid
     end
   end
 

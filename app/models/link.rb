@@ -11,9 +11,12 @@
 #
 
 class Link < ActiveRecord::Base
+  LABEL_TYPES = %w(short guid custom)
+
   belongs_to :item
 
   validates :label, presence: true, uniqueness: true
+  validates :label_type, inclusion: {in: LABEL_TYPES}
 
   attr_accessor :short_id, :salt_count
 
@@ -28,7 +31,7 @@ class Link < ActiveRecord::Base
     short_id = ShortLabelSequence.next
     label = LabelMaker.new.generate_short_label(salt_count: salt_count, index: short_id)
 
-    new(label: label, salt_count: salt_count, short_id: short_id)
+    new(label_type: "short", label: label, salt_count: salt_count, short_id: short_id)
   end
 
 end

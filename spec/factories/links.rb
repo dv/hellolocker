@@ -18,14 +18,7 @@ FactoryGirl.define do
 
   factory :link do
     label
-  end
-
-  factory :short_link do
-
-    after(:build) do |link|
-      link.generate_label unless link.label.present?
-    end
-
+    label_type "custom"
   end
 
 end
