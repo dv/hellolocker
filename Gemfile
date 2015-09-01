@@ -46,6 +46,8 @@ gem 'rails-settings-cached'
 gem 'react-rails'
 gem 'browserify-rails'
 
+gem 'annotations'
+
 group :development, :test do
   gem 'pry', require: "pry"
 
