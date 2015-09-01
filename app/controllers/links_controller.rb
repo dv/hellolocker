@@ -22,7 +22,7 @@ private
   end
 
   def link_params
-    params.require(:link).permit(:label)
+    params.require(:link).permit(:label, :short_id, :salt_count)
   end
 
 end

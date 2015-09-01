@@ -3,6 +3,8 @@ class Link < ActiveRecord::Base
 
   validates :label, presence: true, uniqueness: true
 
+  attr_accessor :short_id, :salt_count
+
   def url(options = {})
     options[:label] = label
 
@@ -10,10 +12,11 @@ class Link < ActiveRecord::Base
   end
 
   def self.build_short_link
-    index = ShortLabelSequence.next
-    label = LabelMaker.new.generate_short_label(salt_count: 1, index: index)
+    salt_count = 1
+    short_id = ShortLabelSequence.next
+    label = LabelMaker.new.generate_short_label(salt_count: salt_count, index: short_id)
 
-    new(label: label)
+    new(label: label, salt_count: salt_count, short_id: short_id)
   end
 
 end
