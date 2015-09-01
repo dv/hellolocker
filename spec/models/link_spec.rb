@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: links
+#
+#  id         :integer          not null, primary key
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  label      :string
+#  item_id    :integer
+#  label_type :string
+#
+
 require 'rails_helper'
 
 RSpec.describe Link, type: :model do
