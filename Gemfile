@@ -3,13 +3,10 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-gem 'bootstrap-sass', '~> 3.3.5'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -48,8 +45,11 @@ gem 'browserify-rails'
 
 gem 'annotations'
 
+gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
+
 group :development, :test do
   gem 'pry', require: "pry"
+  gem 'annotate'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -64,7 +64,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'poltergeist'
+  gem 'poltergeist', path: "~/poetry/dv/poltergeist"
   gem 'factory_girl_rails'
   gem 'database_cleaner'
 
@@ -81,3 +81,8 @@ end
 group :test do
   gem 'coveralls', require: false
 end
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end
+
