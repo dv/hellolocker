@@ -6,6 +6,10 @@ module FeatureSessionHelpers
 
     user
   end
+
+  def single_user_login
+    login_as(SingleUserMode.master_user)
+  end
 end
 
 RSpec.configure do |config|
