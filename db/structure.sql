@@ -37,7 +37,8 @@ CREATE TABLE items (
     id integer NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    url character varying
+    url character varying,
+    user_id integer
 );
 
 
@@ -313,4 +314,6 @@ INSERT INTO schema_migrations (version) VALUES ('20150821152750');
 INSERT INTO schema_migrations (version) VALUES ('20150821155220');
 
 INSERT INTO schema_migrations (version) VALUES ('20150827100929');
+
+INSERT INTO schema_migrations (version) VALUES ('20151012152103');
 

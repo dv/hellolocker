@@ -1,19 +1,17 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.all
+    @items = current_user.items
   end
 
   def new
-    @link = Link.build_short_link
-    @item = Item.new
+    @item = current_user.items.new
+    @link = @item.links.build_short_link
   end
 
   def create
-    @link = Link.new(link_params)
-    @item = Item.new(item_params)
-
-    @item.links << @link
+    @item = current_user.items.new(item_params)
+    @link = @item.links.new(link_params)
 
     if @item.save
       redirect_to items_path

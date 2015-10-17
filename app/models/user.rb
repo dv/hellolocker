@@ -31,6 +31,8 @@ class User < ActiveRecord::Base
       :recoverable, :rememberable, :trackable, :validatabled, :registerable
   end
 
+  has_many :items
+
   validates_uniqueness_of :master, if: :master
 
   def valid_password?(maybe_password)

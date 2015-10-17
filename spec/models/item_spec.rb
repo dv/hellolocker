@@ -6,6 +6,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  url        :string
+#  user_id    :integer
 #
 
 require 'rails_helper'
@@ -17,6 +18,14 @@ RSpec.describe Item do
   describe "#url" do
     it "is invalid without" do
       item = build :item, url: nil
+
+      expect(item).to be_invalid
+    end
+  end
+
+  describe "#user" do
+    it "is invalid without" do
+      item = build :item, user: nil
 
       expect(item).to be_invalid
     end
