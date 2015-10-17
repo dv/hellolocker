@@ -1,5 +1,13 @@
-%h2
-  Create a new link
+%h2 Create a new link
+
+- if @item.errors.any?
+  %p
+    Something went wrong:
+    %ul
+      - @item.errors.messages.each do |field, errors|
+        %li
+          = field
+          = errors.to_sentence
 
 %p
   = form_for @item do |form|

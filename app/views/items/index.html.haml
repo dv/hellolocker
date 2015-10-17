@@ -1,12 +1,21 @@
-- @items.each do |item|
-  %h2
-    = item.url
-  %ul
-    - item.links.each do |link|
-      %li
-        = link_to label_url(link) do
-          = label_url(link)
+.container
+  - if @items.any?
+    .row
+      List of items
 
-    %li
-      = link_to new_item_link_path(item) do
-        Add New
+    - @items.each do |item|
+      .row
+        %h2
+          = item.url
+        %ul
+          - item.links.each do |link|
+            %li
+              = link_to label_url(link) do
+                = label_url(link)
+
+          %li
+            = link_to new_item_link_path(item) do
+              Add New
+  - else
+    .row
+      No items available
