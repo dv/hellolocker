@@ -49,7 +49,7 @@ gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 
 group :development, :test do
   gem 'pry', require: "pry"
-  gem 'annotate'
+  gem 'launchy'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -76,6 +76,7 @@ group :development do
   gem 'guard-rspec', require: false
   gem 'terminal-notifier-guard'
   gem 'quiet_assets'
+  gem 'annotate'
 end
 
 group :test do
