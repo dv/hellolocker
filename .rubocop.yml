@@ -11,7 +11,7 @@ AllCops:
 
 # Indent private/protected/public as deep as method definitions
 Style/AccessModifierIndentation:
-  EnforcedStyle: indent
+  EnforcedStyle: outdent
   SupportedStyles:
     - outdent
     - indent
