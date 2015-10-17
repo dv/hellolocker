@@ -14,6 +14,7 @@ RSpec.feature "Master User" do
 
   scenario "Can sign out" do
     single_user_login
+    visit root_path
 
     click_link t("layouts.navigation.sign_out")
 
