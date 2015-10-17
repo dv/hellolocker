@@ -1,0 +1,23 @@
+%nav.navbar.navbar-fixed-top.navbar-dark.bg-inverse
+  = link_to "Hello Locker", root_url, class: "navbar-brand"
+
+  %ul.nav.nav-pills
+    %li.nav-item.active
+      = link_to new_item_path, class: "nav-link" do
+        New Item
+        %span.sr-only (current)
+
+    %li.nav-item
+      = link_to "About", "#", class: "nav-link"
+
+    %li.nav-item
+      = link_to "Contact", "#", class: "nav-link"
+
+  %ul.nav.nav-pills.pull-right
+    - if signed_in?
+      %li.nav-item
+        = link_to "Sign out", destroy_user_session_path, method: "DELETE", class: "nav-link"
+
+    - else
+      %li.nav-item
+        = link_to "Sign in", new_user_session_path, class: "nav-link"
